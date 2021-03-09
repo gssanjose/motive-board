@@ -247,7 +247,9 @@ body {
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
+  background-position: 0 -50px;
   letter-spacing: 1.8px;
+  margin-bottom: 80px;
 }
 
 .wrapper {
@@ -266,11 +268,12 @@ header .head {
 
 header h1 {
   font-family: 'Shippori Mincho B1', serif;
+  width: 90%;
   color: #1d1e24;
   font-size: 6rem;
-  text-align: center;
+  letter-spacing: 10px;
   text-transform: uppercase;
-  width: 90%;
+  text-align: center;
   margin: 80px auto 0;
 }
 
@@ -328,7 +331,6 @@ section div {
   margin: 0 10px 40px;
   overflow: auto;
   position: relative;
-  padding: 0 10px;
 }
 
 section div h2 {
@@ -346,5 +348,54 @@ section div button {
   right: 10px;
   padding: 4px 7px 2px;
   border-radius: 10px;
+}
+
+section div:nth-of-type(4n + 1) {
+  background-image: url(../images/bg-1-unsplash.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+section div:nth-of-type(4n + 2) {
+  background-image: url(../images/bg-2-unsplash.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+section div:nth-of-type(4n + 3) {
+  background-image: url(../images/bg-3-unsplash.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+section div:nth-of-type(4n + 4) {
+  background-image: url(../images/bg-4-unsplash.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 10px;
+  background: #1d1e24ee;
+  color: #ffffffdd;
+}
+
+footer p {
+  margin: 0;
+  padding: 2px;
+}
+
+footer a {
+  text-decoration: none;
+  color: #ffffffdd;
+}
+
+footer a:visited {
+  color: #e7a284;
 }
 /*# sourceMappingURL=App.css.map */

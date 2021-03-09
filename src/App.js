@@ -3,7 +3,9 @@ import './styles/App.css';
 // importing firebase into the component
 import firebase from './firebase.js';
 import Header from './Header.js';
-import Form from './Form.js'
+import Form from './Form.js';
+import Footer from './Footer.js';
+import Swal from 'sweetalert2';
 
 function App() {
 
@@ -12,6 +14,7 @@ function App() {
   const [boardArray, setBoardArray] = useState([]);
   // initialize a state for the text area
   const [textareaInput, setTextareaInput] = useState('');
+  const [textInput, setTextInput] = useState('');
 
 
   useEffect(() => {
@@ -39,9 +42,13 @@ function App() {
 
 
   const handleChange = (event) => {
-    // state change when any value is put into the input\
+    // state change when any value is put into the input
     setTextareaInput(event.target.value);
   }
+
+  // const handleChangeText = (event) => {
+  //   setTextInput(event.target.value);
+  // } 
 
   const handleSubmit = (event) => {
     //prevent default behaviour
@@ -59,8 +66,24 @@ function App() {
   // handleClick event handler -- needs a parameter representing the posts uniqueKey that will be used to remove a specific post from the database
   const handleClick = (postUniqueId) => {
     const dbRef = firebase.database().ref();
-    alert('Are you sure?');
-    dbRef.child(postUniqueId).remove();
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success',
+          dbRef.child(postUniqueId).remove()
+        )
+      }
+    })
   }
 
 
@@ -69,8 +92,10 @@ function App() {
       <Header>
         <Form 
           submit={handleSubmit}
-          change={handleChange}
-          value={textareaInput}
+          changeMessage={handleChange}
+          valueMessage={textareaInput}
+          // changeText={handleChangeText}
+          // valueText={textInput}
         />
       </Header>
       {/* map through the boardArray in state and display them to the page */}
@@ -86,6 +111,7 @@ function App() {
           })
         }
       </section>
+      <Footer />
     </div>
   );
 }
