@@ -1,0 +1,120 @@
+@import 'setup';
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Shippori+Mincho+B1:wght@400;700&display=swap");
+
+// font-family: 'Shippori Mincho B1', serif;
+   // font-family: 'Raleway', sans-serif;
+
+   html {
+      font-size: 62.5%;
+   }
+
+   body {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.6rem;
+      background-image: url(../images/peak-unsplash.jpg);
+      background-size: cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      letter-spacing: 1.8px;
+   }
+
+   .wrapper {
+      width: 80%;
+      max-width: 1300px;
+      margin: 0 auto;
+   }
+
+header {
+
+   .head {
+      margin: 40px auto;
+      height: 600px;
+      border: 3px solid #1d1e24;
+      border-radius: 50px;
+      background-color: #92c2d0cc;
+   }
+
+   h1 {
+      font-family: 'Shippori Mincho B1', serif;
+      color: #1d1e24;
+      font-size: 6rem;
+      text-align: center;
+      text-transform: uppercase;
+      width: 90%;
+      margin: 80px auto 0;
+   }
+
+   form {
+
+      margin: 120px 0 0;
+
+      textarea {
+         display: block;
+         height: 110px;
+         width: 50%;
+         margin: 20px auto 0;
+         border-radius: 30px;
+         border: 2px solid #1d1e24;
+         resize: none;
+         padding: 20px;
+         background-color: #ffffffdd;
+      }
+
+      button {
+         display: block;
+         margin: 35px auto;
+         padding: 10px 25px 8px;
+         letter-spacing: 3.5px;
+         text-transform: uppercase;
+         background: #ffffffdd;
+         font-weight: 700;
+         font-size: 1.8rem;
+         border: 3px solid #1d1e24;
+         border-radius: 50px;
+         transition: all 0.4s ease;
+
+         &:hover,
+         &:focus {
+            background: #e7a284;
+         }
+      }
+
+   }
+
+}
+
+section {
+
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-evenly;
+
+   div {
+      width: 300px;
+      height: 300px;
+      border: 2px solid #1d1e24;
+      border-radius: 20px;
+      margin: 0 10px 40px;
+      overflow: auto;
+      position: relative;
+      padding: 0 10px;
+
+      h2 {
+         text-align: center;
+         text-transform: capitalize;
+         margin: 30px 0;
+      }
+
+      button {
+         font-size: 1.2rem;
+         font-weight: 700;
+         text-transform: uppercase;
+         position: absolute;
+         bottom: 10px;
+         right: 10px;
+         padding: 4px 7px 2px;
+         border-radius: 10px;
+      }
+   }
+
+}

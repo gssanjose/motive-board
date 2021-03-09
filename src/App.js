@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import './App.css';
+import './styles/App.css';
 // importing firebase into the component
 import firebase from './firebase.js';
 import Header from './Header.js';
@@ -49,14 +49,17 @@ function App() {
     // create a reference to the database
     const dbRef = firebase.database().ref();
     // push the value of the textareaInput state variable to the database
-    dbRef.push(textareaInput);
-    // reset the value of the textarea to be '' using the setTextareaInput updater function
-    setTextareaInput('');
+    if (textareaInput) {
+      dbRef.push(textareaInput);
+      // reset the value of the textarea to be '' using the setTextareaInput updater function
+      setTextareaInput('');
+    }
   }
 
   // handleClick event handler -- needs a parameter representing the posts uniqueKey that will be used to remove a specific post from the database
   const handleClick = (postUniqueId) => {
     const dbRef = firebase.database().ref();
+    alert('Are you sure?');
     dbRef.child(postUniqueId).remove();
   }
 
@@ -71,7 +74,7 @@ function App() {
         />
       </Header>
       {/* map through the boardArray in state and display them to the page */}
-      <section className='message-board'>
+      <section className='message-board wrapper'>
         {
           boardArray.map((post) => {
             return (
