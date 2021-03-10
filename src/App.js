@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './styles/App.css';
-// importing firebase into the component
+// import firebase into the component
 import firebase from './firebase.js';
 import Header from './Header.js';
 import Form from './Form.js';
@@ -12,9 +12,8 @@ function App() {
   // initialize a state for for the data that holds the message posts
     // pass in an initial value of an empty array
   const [boardArray, setBoardArray] = useState([]);
-  // initialize a state for the text area
-  // const [textareaInput, setTextareaInput] = useState('');
-  // const [textInput, setTextInput] = useState('');
+
+  // initialize a state for the inputs (textarea, textInput, #likes)
   const [inputs, setInputs] = useState({
     inputMessage: '',
     inputInitial: '',
@@ -49,12 +48,11 @@ function App() {
 
 
   const handleChange = (event) => {
-    // state change when any value is put into the input
+    // state change when a value is put into the input
     setInputs({
       ...inputs, 
       [event.target.name]: event.target.value
     })
-    // setTextareaInput(event.target.value);
   }
 
   const handleSubmit = (event) => {
@@ -62,10 +60,10 @@ function App() {
     event.preventDefault();
     // create a reference to the database
     const dbRef = firebase.database().ref();
-    // push the value of the textareaInput state variable to the database
+    // if inputMessage contains a message (truthy) push the following to the database
     if (inputs.inputMessage) {
       dbRef.push(inputs);
-      // reset the value of the textarea to be '' using the setTextareaInput updater function
+      // reset the value of the inputs to be '' and 0 (initial values) using the setInputs updater function
       setInputs({
         inputMessage: '',
         inputInitial: '',
@@ -91,6 +89,7 @@ function App() {
           'Deleted!',
           'Your file has been deleted.',
           'success',
+          // if the result is confirmed -- remove post from database
           dbRef.child(postUniqueId).remove()
         )
       }
@@ -98,15 +97,18 @@ function App() {
   }
 
   const likePost = (messageKey) => {
+    // create a copy of the boardArray
     const boardArrayCopy = [...boardArray];
+    // select the message that has the same uniqueKey as the the post we want to change state
+    // inside the object, select the property of 'likeCount' with [0]
     const currentMessage = boardArrayCopy.filter((messageObject) => {
       return messageObject.uniqueKey === messageKey;
     })[0];
+    // create a changeable variable that takes the copy of the number of likes, and increases it by 1
     let updatedLikes = currentMessage.likeCount + 1;
-    console.log(currentMessage);
+
     const dbRef = firebase.database().ref();
-    // console.log(dbRef.val());
-    // let updatedLikes = 
+    // set the value of 'likes' to be what we set the updatedLikes variable to be
     dbRef.child(messageKey).update({
       likes: updatedLikes
     });
@@ -120,9 +122,6 @@ function App() {
           submit={handleSubmit}
           changeMessage={handleChange}
           inputsValue={inputs}
-          // valueMessage={textareaInput}
-          // changeText={handleChangeText}
-          // valueText={textInput}
         />
       </Header>
       {/* map through the boardArray in state and display them to the page */}

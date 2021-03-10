@@ -1,8 +1,9 @@
 @import 'setup';
+@import 'mixins';
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Shippori+Mincho+B1:wght@400;700&display=swap");
 
 // font-family: 'Shippori Mincho B1', serif;
-   // font-family: 'Raleway', sans-serif;
+// font-family: 'Raleway', sans-serif;
 
    html {
       font-size: 62.5%;
@@ -18,12 +19,20 @@
       background-position: 0 -50px;
       letter-spacing: 1.8px;
       margin-bottom: 80px;
+
+      @include tabletMQ {
+         background-position: 0;
+      }
    }
 
    .wrapper {
       width: 80%;
       max-width: 1300px;
       margin: 0 auto;
+
+      @include mobileMQ {
+         width: 95%;
+      }
    }
 
 header {
@@ -45,12 +54,21 @@ header {
       text-transform: uppercase;
       text-align: center;
       margin: 80px auto 0;
+
+      @include tabletMQ {
+         font-size: 7vw;
+      }
    }
 
    p {
       width: 60%;
+      min-width: 320px;
       margin: 40px auto 0;
       text-align: center;
+
+      @include mobileMQ {
+         min-width: 90%;
+      }
    }
 
    form {
@@ -61,6 +79,7 @@ header {
          display: block;
          height: 110px;
          width: 50%;
+         min-width: 320px;
          margin: 20px auto 20px;
          border-radius: 30px;
          border: 2px solid #1d1e24;
@@ -68,11 +87,17 @@ header {
          padding: 20px;
          background-color: #ffffffdd;
          text-align: center;
+
+         @include mobileMQ {
+            width: 90%;
+            min-width: 250px;
+         }
       }
 
       input {
          display: block;
-         width: 30%;
+         width: 40%;
+         min-width: 230px;
          margin: 0 auto;
          border-radius: 15px;
          border: 2px solid #1d1e24;
@@ -117,6 +142,18 @@ section {
       margin: 0 5px 40px;
       overflow: auto;
       position: relative;
+      transition: all 0.5s ease;
+
+      &:hover {
+         z-index: 2;
+         transform: scale(1.1);            
+            box-shadow:
+            0 3px 2px rgba(0, 0, 0, 0.034),
+            0 6.5px 5px rgba(0, 0, 0, 0.048),
+            0 12px 10px rgba(0, 0, 0, 0.06),
+            0 22px 18px rgba(0, 0, 0, 0.072),
+            0 42px 33px rgba(0, 0, 0, 0.086);
+      }
 
       h2 {
          font-size: 3rem;
@@ -271,14 +308,8 @@ section {
 
 footer {
 
-   position: fixed;
-   bottom: 0;
-   left: 0;
-   right: 0;
-   text-align: center;
-   padding: 10px;
-   background: #1d1e24ee;
-   color: #ffffffdd;
+   z-index: 3;
+   transition: bottom 0.5s ease;
 
    p {
       margin: 0;
@@ -293,4 +324,32 @@ footer {
          color: #e7a284;
       }
    }
+
+   .my-name {
+      margin-top: 0;
+      padding-top: 0;
+   }
+}
+
+.footer-shown {
+
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   text-align: center;
+   padding: 15px 0 10px;
+   background: #1d1e24ee;
+   color: #ffffffdd;
+}
+
+.footer-hidden {
+   position: fixed;
+   bottom: -75px;
+   left: 0;
+   right: 0;
+   text-align: center;
+   padding: 15px 0 10px;
+   background: #1d1e24ee;
+   color: #ffffffdd;
 }
