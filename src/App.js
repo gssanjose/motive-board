@@ -63,7 +63,7 @@ function App() {
     // create a reference to the database
     const dbRef = firebase.database().ref();
     // push the value of the textareaInput state variable to the database
-    if (inputs) {
+    if (inputs.inputMessage) {
       dbRef.push(inputs);
       // reset the value of the textarea to be '' using the setTextareaInput updater function
       setInputs({
@@ -97,12 +97,20 @@ function App() {
     })
   }
 
-  // const likePost = (messageLikes) => {
-  //   const dbRef = firebase.database().ref();
-  //   dbRef.child(messageLikes).update({
-  //     likes: likes++
-  //   });
-  // }
+  const likePost = (messageKey) => {
+    const boardArrayCopy = [...boardArray];
+    const currentMessage = boardArrayCopy.filter((messageObject) => {
+      return messageObject.uniqueKey === messageKey;
+    })[0];
+    let updatedLikes = currentMessage.likeCount + 1;
+    console.log(currentMessage);
+    const dbRef = firebase.database().ref();
+    // console.log(dbRef.val());
+    // let updatedLikes = 
+    dbRef.child(messageKey).update({
+      likes: updatedLikes
+    });
+  }
 
 
   return (
@@ -125,7 +133,7 @@ function App() {
               <div className='message-posts' key={post.uniqueKey} >
                 <h2>{post.messagePost}</h2>
                 <p className='initial'>{post.messageInitial}</p>
-                <button className='likeButton' /*onClick={() => {likePost()}} */>💓</button>
+                <button className='likeButton' onClick={() => { likePost(post.uniqueKey)}} >💓</button>
                 <p className='likes'>{post.likeCount}</p>
                 <button onClick={() => {handleClick(post.uniqueKey)}} >Remove</button>
               </div>

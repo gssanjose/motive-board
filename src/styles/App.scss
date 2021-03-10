@@ -133,8 +133,9 @@ section {
          position: absolute;
          top: 10px;
          right: 10px;
-         padding: 4px 7px 2px;
+         padding: 3px 7px 3px;
          border-radius: 10px;
+         border: 1px solid #1d1e24;
          transition: all 0.3s ease;
       }
 
@@ -153,7 +154,7 @@ section {
          position: absolute;
          top: 10px;
          left: 10px;
-         padding: 4px 7px 2px;
+         padding: 3px 7px 3px;
          border-radius: 10px;
       }
 
@@ -187,7 +188,7 @@ section {
 
          &:hover {
             background: linear-gradient(45deg, rgba(2,0,36,0.5) 0%, rgba(66,123,213,0.5) 47%, rgba(0,212,255,0.5) 100%);
-            color: #fff;
+         border: 1px solid #684c1e;
          }
       }
    }
@@ -212,6 +213,7 @@ section {
 
          &:hover {
             background: linear-gradient(45deg, rgba(36,0,12,0.7) 0%, rgba(255,170,121,0.7) 50%, rgba(224,127,35,0.7) 100%);
+            border: 1px solid #18718999;
          }
       }
    }
@@ -229,12 +231,12 @@ section {
       }
 
       button {
-         color: #255430;
-         background: linear-gradient(45deg, rgba(129,61,84,0.3) 0%, rgba(214,196,185,0.3) 50%, rgba(187,146,108,0.3) 100%);
+            color: #000000dd;
+         background: linear-gradient(45deg, rgba(129,61,84,0.4) 0%, rgba(214,196,185,0.4) 50%, rgba(187,146,108,0.4) 100%);
 
          &:hover {
-            color: #000;
             background: linear-gradient(45deg, rgba(129,61,84,0.8) 0%, rgba(214,196,185,0.8) 50%, rgba(187,146,108,0.8) 100%);
+            border: 1px solid #a5673bbb;
          }
       }
    }
@@ -256,11 +258,11 @@ section {
 
       button {
          background: linear-gradient(45deg, rgba(66,186,198,0.3) 0%, rgba(140,214,237,0.3) 50%, rgba(60,172,215,0.3) 100%);
-         color: #fff;
+         color: #ffffffde;
 
          &:hover {
             background: linear-gradient(45deg, rgba(66,186,198,0.7) 0%, rgba(140,214,237,0.7) 50%, rgba(60,172,215,0.7) 100%);
-            color: #000;
+            border: 1px solid #ffffffaa;
          }
       }
    }
