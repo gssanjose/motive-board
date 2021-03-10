@@ -409,7 +409,7 @@ section div button {
   position: absolute;
   top: 10px;
   right: 10px;
-  padding: 3px 7px 3px;
+  padding: 4px 7px 3px;
   border-radius: 10px;
   border: 1px solid #1d1e24;
   -webkit-transition: all 0.3s ease;
@@ -425,14 +425,8 @@ section div .initial {
 }
 
 section div .like-button {
-  font-size: 1.2rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  position: absolute;
   top: 10px;
   left: 10px;
-  padding: 3px 7px 3px;
-  border-radius: 10px;
 }
 
 section div .likes {
