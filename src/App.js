@@ -13,8 +13,13 @@ function App() {
     // pass in an initial value of an empty array
   const [boardArray, setBoardArray] = useState([]);
   // initialize a state for the text area
-  const [textareaInput, setTextareaInput] = useState('');
-  const [textInput, setTextInput] = useState('');
+  // const [textareaInput, setTextareaInput] = useState('');
+  // const [textInput, setTextInput] = useState('');
+  const [inputs, setInputs] = useState({
+    inputMessage: '',
+    inputInitial: '',
+    likes: 0
+  });
 
 
   useEffect(() => {
@@ -31,7 +36,9 @@ function App() {
       for (let postKey in postData) {
         board.push({
           uniqueKey: postKey,
-          messagePost: postData[postKey]
+          messagePost: postData[postKey].inputMessage,
+          messageInitial: postData[postKey].inputInitial,
+          likeCount: postData[postKey].likes
         });
       }
       // user the setBoardArray updater function to update state with the value of the array of posts
@@ -43,12 +50,12 @@ function App() {
 
   const handleChange = (event) => {
     // state change when any value is put into the input
-    setTextareaInput(event.target.value);
+    setInputs({
+      ...inputs, 
+      [event.target.name]: event.target.value
+    })
+    // setTextareaInput(event.target.value);
   }
-
-  // const handleChangeText = (event) => {
-  //   setTextInput(event.target.value);
-  // } 
 
   const handleSubmit = (event) => {
     //prevent default behaviour
@@ -56,10 +63,14 @@ function App() {
     // create a reference to the database
     const dbRef = firebase.database().ref();
     // push the value of the textareaInput state variable to the database
-    if (textareaInput) {
-      dbRef.push(textareaInput);
+    if (inputs) {
+      dbRef.push(inputs);
       // reset the value of the textarea to be '' using the setTextareaInput updater function
-      setTextareaInput('');
+      setInputs({
+        inputMessage: '',
+        inputInitial: '',
+        likes: 0
+      });
     }
   }
 
@@ -86,6 +97,13 @@ function App() {
     })
   }
 
+  // const likePost = (messageLikes) => {
+  //   const dbRef = firebase.database().ref();
+  //   dbRef.child(messageLikes).update({
+  //     likes: likes++
+  //   });
+  // }
+
 
   return (
     <div className="App">
@@ -93,7 +111,8 @@ function App() {
         <Form 
           submit={handleSubmit}
           changeMessage={handleChange}
-          valueMessage={textareaInput}
+          inputsValue={inputs}
+          // valueMessage={textareaInput}
           // changeText={handleChangeText}
           // valueText={textInput}
         />
@@ -105,6 +124,9 @@ function App() {
             return (
               <div className='message-posts' key={post.uniqueKey} >
                 <h2>{post.messagePost}</h2>
+                <p className='initial'>{post.messageInitial}</p>
+                <button className='likeButton' /*onClick={() => {likePost()}} */>💓</button>
+                <p className='likes'>{post.likeCount}</p>
                 <button onClick={() => {handleClick(post.uniqueKey)}} >Remove</button>
               </div>
             )

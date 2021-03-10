@@ -47,25 +47,42 @@ header {
       margin: 80px auto 0;
    }
 
+   p {
+      width: 60%;
+      margin: 40px auto 0;
+      text-align: center;
+   }
+
    form {
 
-      margin: 120px 0 0;
+      margin: 40px 0 0;
 
       textarea {
          display: block;
          height: 110px;
          width: 50%;
-         margin: 20px auto 0;
+         margin: 20px auto 20px;
          border-radius: 30px;
          border: 2px solid #1d1e24;
          resize: none;
          padding: 20px;
          background-color: #ffffffdd;
+         text-align: center;
+      }
+
+      input {
+         display: block;
+         width: 30%;
+         margin: 0 auto;
+         border-radius: 15px;
+         border: 2px solid #1d1e24;
+         padding: 5px 15px;
+         text-align: center;
       }
 
       button {
          display: block;
-         margin: 35px auto;
+         margin: 20px auto;
          padding: 10px 25px 8px;
          letter-spacing: 3.5px;
          text-transform: uppercase;
@@ -93,18 +110,20 @@ section {
    justify-content: space-evenly;
 
    div {
-      width: 300px;
-      height: 300px;
+      width: 310px;
+      height: 320px;
       border: 2px solid #1d1e24;
       border-radius: 20px;
-      margin: 0 10px 40px;
+      margin: 0 5px 40px;
       overflow: auto;
       position: relative;
 
       h2 {
+         font-size: 3rem;
          text-align: center;
          text-transform: capitalize;
-         margin: 30px 0;
+         padding: 0 20px;
+         margin: 60px auto 30px;
       }
 
       button {
@@ -112,10 +131,37 @@ section {
          font-weight: 700;
          text-transform: uppercase;
          position: absolute;
-         bottom: 10px;
+         top: 10px;
          right: 10px;
          padding: 4px 7px 2px;
          border-radius: 10px;
+         transition: all 0.3s ease;
+      }
+
+      .initial {
+         position: absolute;
+         top: 13px;
+         left: 45%;
+         margin: 0;
+         letter-spacing: -1px;
+      }
+
+      .likeButton {
+         font-size: 1.2rem;
+         font-weight: 700;
+         text-transform: uppercase;
+         position: absolute;
+         top: 10px;
+         left: 10px;
+         padding: 4px 7px 2px;
+         border-radius: 10px;
+      }
+
+      .likes {
+         position: absolute;
+         top: 13px;
+         left: 55px;
+         margin: 0;
       }
    }
 
@@ -123,24 +169,100 @@ section {
       background-image: url(../images/bg-1-unsplash.jpg);
       background-size: cover;
       background-repeat: no-repeat;
+      color: #684c1e;
+      letter-spacing: -1px;
+      word-spacing: 9px;
+
+      h2 {
+         font-size: 3.1rem;
+         background-color: #00000033;
+         width: 80%;
+         padding: 10px;
+         border-radius: 10px;
+      }
+
+      button {
+         background: linear-gradient(45deg, rgba(2,0,36,0.3) 0%, rgba(66,123,213,0.3) 47%, rgba(0,212,255,0.3) 100%); 
+         color: #684c1e;
+
+         &:hover {
+            background: linear-gradient(45deg, rgba(2,0,36,0.5) 0%, rgba(66,123,213,0.5) 47%, rgba(0,212,255,0.5) 100%);
+            color: #fff;
+         }
+      }
    }
 
    div:nth-of-type(4n + 2) {
       background-image: url(../images/bg-2-unsplash.jpg);
       background-size: cover;
       background-repeat: no-repeat;
+      color: #187189;
+      letter-spacing: 4px;
+
+      h2 {
+         background-color: #ffffffaa;
+         width: 80%;
+         padding: 10px;
+         border-radius: 10px;
+      }
+
+      button {
+         color: #00212b;
+         background: linear-gradient(45deg, rgba(36,0,12,0.3) 0%, rgba(255,170,121,0.3) 50%, rgba(224,127,35,0.3) 100%);
+
+         &:hover {
+            background: linear-gradient(45deg, rgba(36,0,12,0.7) 0%, rgba(255,170,121,0.7) 50%, rgba(224,127,35,0.7) 100%);
+         }
+      }
    }
 
    div:nth-of-type(4n + 3) {
       background-image: url(../images/bg-3-unsplash.jpg);
       background-size: cover;
       background-repeat: no-repeat;
+
+      h2 {
+         background-color: #1d202733;
+         width: 80%;
+         padding: 10px;
+         border-radius: 10px;
+      }
+
+      button {
+         color: #255430;
+         background: linear-gradient(45deg, rgba(129,61,84,0.3) 0%, rgba(214,196,185,0.3) 50%, rgba(187,146,108,0.3) 100%);
+
+         &:hover {
+            color: #000;
+            background: linear-gradient(45deg, rgba(129,61,84,0.8) 0%, rgba(214,196,185,0.8) 50%, rgba(187,146,108,0.8) 100%);
+         }
+      }
    }
 
    div:nth-of-type(4n + 4){
       background-image: url(../images/bg-4-unsplash.jpg);
       background-size: cover;
       background-repeat: no-repeat;
+      color: #fcfeff;
+      letter-spacing: 7px;
+
+      h2 {
+         font-size: 2.6rem;
+         background-color: #cba67333;
+         width: 80%;
+         padding: 10px;
+         border-radius: 10px;
+      }
+
+      button {
+         background: linear-gradient(45deg, rgba(66,186,198,0.3) 0%, rgba(140,214,237,0.3) 50%, rgba(60,172,215,0.3) 100%);
+         color: #fff;
+
+         &:hover {
+            background: linear-gradient(45deg, rgba(66,186,198,0.7) 0%, rgba(140,214,237,0.7) 50%, rgba(60,172,215,0.7) 100%);
+            color: #000;
+         }
+      }
    }
 
 }
