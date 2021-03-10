@@ -132,7 +132,7 @@ function App() {
               <div className='message-posts' key={post.uniqueKey} >
                 <h2>{post.messagePost}</h2>
                 <p className='initial'>{post.messageInitial}</p>
-                <button className='likeButton' onClick={() => { likePost(post.uniqueKey)}} >💓</button>
+                <button className='like-button' onClick={() => { likePost(post.uniqueKey)}} >💓</button>
                 <p className='likes'>{post.likeCount}</p>
                 <button onClick={() => {handleClick(post.uniqueKey)}} >Remove</button>
               </div>
