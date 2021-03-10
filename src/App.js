@@ -69,6 +69,8 @@ function App() {
         inputInitial: '',
         likes: 0
       });
+    } else {
+      Swal.fire('please enter a valid message');
     }
   }
 
