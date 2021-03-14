@@ -2,14 +2,14 @@ import { useState } from 'react';
 
 function Footer() {
 
-   const [isActive, setActive] = useState('false');
+   const [isActive, setActive] = useState(false);
 
    const handleToggle = () => {
       setActive(!isActive);
    }
 
    return (
-      <footer onClick={handleToggle} className={isActive ? 'footer-hidden' : 'footer-shown'}>
+      <footer onClick={handleToggle} className={isActive ? 'footer-shown' : 'footer-hidden'}>
          <p className='move'>***</p>
          <p className='my-name'>gs @ <a href="https://junocollege.com">juno college</a><sup> &copy;</sup></p>
          <p>photos from <a href="https://unsplash.com">unsplash</a></p>
