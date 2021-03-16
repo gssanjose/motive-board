@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-import './styles/App.css';
-// import firebase into the component
 import firebase from './firebase.js';
+import Swal from 'sweetalert2';
+import './styles/App.css';
+
 import Header from './Header.js';
 import Form from './Form.js';
 import Footer from './Footer.js';
-import Swal from 'sweetalert2';
 
 function App() {
 
