@@ -108,7 +108,6 @@ function App() {
     })[0];
     // create a changeable variable that takes the copy of the number of likes, and increases it by 1
     let updatedLikes = currentMessage.likeCount + 1;
-
     const dbRef = firebase.database().ref();
     // set the value of 'likes' to be what we set the updatedLikes variable to be
     dbRef.child(messageKey).update({
