@@ -3,7 +3,7 @@ function Header(props) {
       <header>
          <div className="wrapper head">
             <h1>Motivation Board</h1>
-            <p>If you have any advice, something inspirational, or a quote for your peers, leave it down below!</p>
+            <h2>If you have any advice, something inspirational, or a quote for your peers, leave it down below!</h2>
             { props.children }
          </div>
       </header>

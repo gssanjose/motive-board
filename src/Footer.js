@@ -9,7 +9,7 @@ function Footer() {
    }
 
    return (
-      <footer onClick={handleToggle} className={isActive ? 'footer-shown' : 'footer-hidden'}>
+      <footer tabIndex={0} onClick={handleToggle} onKeyPress={handleToggle} className={isActive ? 'footer-shown' : 'footer-hidden'}>
          <p className='move'>***</p>
          <p className='my-name'>gs @ <a href="https://junocollege.com">juno college</a><sup> &copy;</sup></p>
          <p>photos from <a href="https://unsplash.com">unsplash</a></p>

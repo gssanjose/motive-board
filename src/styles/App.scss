@@ -41,8 +41,9 @@ header {
       margin: 40px auto;
       height: 600px;
       border: 3px solid #1d1e24;
-      border-radius: 50px;
+      border-radius: 15px;
       background-color: #92c2d0cc;
+      box-shadow: 10px 10px 10px darkslategray;
    }
 
    h1 {
@@ -60,11 +61,13 @@ header {
       }
    }
 
-   p {
+   h2 {
       width: 60%;
       min-width: 320px;
       margin: 40px auto 0;
       text-align: center;
+      font-weight: 400;
+      font-size: 1.8rem;
 
       @include mobileMQ {
          min-width: 90%;
@@ -81,7 +84,7 @@ header {
          width: 50%;
          min-width: 320px;
          margin: 20px auto 20px;
-         border-radius: 30px;
+         border-radius: 11px;
          border: 2px solid #1d1e24;
          resize: none;
          padding: 20px;
@@ -99,7 +102,7 @@ header {
          width: 40%;
          min-width: 230px;
          margin: 0 auto;
-         border-radius: 15px;
+         border-radius: 8px;
          border: 2px solid #1d1e24;
          padding: 5px 15px;
          text-align: center;
@@ -138,7 +141,7 @@ section {
       width: 310px;
       height: 320px;
       border: 2px solid #1d1e24;
-      border-radius: 20px;
+      border-radius: 10px;
       margin: 0 5px 40px;
       overflow: auto;
       position: relative;
@@ -156,7 +159,7 @@ section {
       }
 
       h2 {
-         font-size: 2.3rem;
+         font-size: 2rem;
          line-height: 29px;
          text-align: center;
          text-transform: capitalize;
@@ -216,7 +219,8 @@ section {
          background: linear-gradient(45deg, rgba(2,0,36,0.3) 0%, rgba(66,123,213,0.3) 47%, rgba(0,212,255,0.3) 100%); 
          color: #684c1e;
 
-         &:hover {
+         &:hover,
+         &:focus {
             background: linear-gradient(45deg, rgba(2,0,36,0.5) 0%, rgba(66,123,213,0.5) 47%, rgba(0,212,255,0.5) 100%);
          border: 1px solid #684c1e;
          }
@@ -238,7 +242,8 @@ section {
          color: #00212b;
          background: linear-gradient(45deg, rgba(36,0,12,0.3) 0%, rgba(255,170,121,0.3) 50%, rgba(224,127,35,0.3) 100%);
 
-         &:hover {
+         &:hover,
+         &:focus {
             background: linear-gradient(45deg, rgba(36,0,12,0.7) 0%, rgba(255,170,121,0.7) 50%, rgba(224,127,35,0.7) 100%);
             border: 1px solid #18718999;
          }
@@ -258,7 +263,8 @@ section {
             color: #000000dd;
          background: linear-gradient(45deg, rgba(129,61,84,0.4) 0%, rgba(214,196,185,0.4) 50%, rgba(187,146,108,0.4) 100%);
 
-         &:hover {
+         &:hover,
+         &:focus {
             background: linear-gradient(45deg, rgba(129,61,84,0.8) 0%, rgba(214,196,185,0.8) 50%, rgba(187,146,108,0.8) 100%);
             border: 1px solid #a5673bbb;
          }
@@ -280,13 +286,13 @@ section {
          background: linear-gradient(45deg, rgba(66,186,198,0.3) 0%, rgba(140,214,237,0.3) 50%, rgba(60,172,215,0.3) 100%);
          color: #ffffffde;
 
-         &:hover {
+         &:hover,
+         &:focus {
             background: linear-gradient(45deg, rgba(66,186,198,0.7) 0%, rgba(140,214,237,0.7) 50%, rgba(60,172,215,0.7) 100%);
             border: 1px solid #ffffffaa;
          }
       }
    }
-
 }
 
 footer {
@@ -315,7 +321,6 @@ footer {
 }
 
 .footer-shown {
-
    position: fixed;
    bottom: 0;
    left: 0;
